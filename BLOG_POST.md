@@ -42,7 +42,7 @@ Image preview requires writing to disk because Raycast's markdown preview expect
 
 The extension only handles text and image types. Other formats (like RTF or proprietary types) show up in the list but can't be previewed or pruned.
 
-## Building
+## Building and Installation
 
 Standard Raycast extension setup:
 
@@ -51,6 +51,15 @@ pnpm install
 pnpm build
 ```
 
-Then import the `dist` folder in Raycast preferences under Extensions. No need to publish to the Raycast store for personal use.
+This creates a `dist` folder with the compiled extension. To install:
+
+1. Open Raycast preferences (⌘,)
+2. Go to Extensions tab
+3. Click the "+" button and select "Import Extension"
+4. Navigate to the `dist` folder in the project directory
+
+The extension is now permanently installed without needing to run `pnpm dev`. No need to publish to the Raycast store for personal use.
+
+Note: The build script uses `ray build -e dist -o dist` where `-e` sets the environment (production optimizations) and `-o` specifies the output directory.
 
 Source: https://github.com/jokull/pruneboard
